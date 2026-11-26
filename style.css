@@ -77,3 +77,4 @@ body{background:radial-gradient(900px 420px at 85% -120px,rgba(25,230,238,.12),t
 .hero::after{content:"";position:absolute;left:-420px;bottom:-460px;width:620px;height:620px;border-radius:50%;border:2px solid rgba(14,124,134,.35);pointer-events:none}
 .hero>*{position:relative}
 footer{background:linear-gradient(180deg,transparent,rgba(14,124,134,.12))}
+.lang-switch a{display:flex;align-items:center;padding:5px 6px;opacity:.55}.lang-switch a svg{display:block;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.15)}.lang-switch a:hover{opacity:1}.lang-switch a.on{opacity:1;background:var(--surface-2);box-shadow:0 0 0 1px var(--accent),var(--glow)}
