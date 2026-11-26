@@ -88,3 +88,9 @@ footer{background:linear-gradient(180deg,transparent,rgba(14,124,134,.12))}
 .main-nav a{color:var(--dim);text-decoration:none;font-size:.9rem;font-weight:500;padding:8px 10px;border-radius:6px}
 .main-nav a:hover{color:var(--text);background:var(--surface-2)}
 @media (max-width:760px){.main-nav{order:3;flex:1 0 100%;margin:0;justify-content:space-between;overflow-x:auto}.main-nav a{padding:6px 8px;font-size:.82rem;white-space:nowrap}}
+
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.gallery figure{margin:0;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:box-shadow .2s,border-color .2s}
+.gallery figure:hover{border-color:var(--accent);box-shadow:0 0 24px rgba(25,230,238,.15)}
+.gallery img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover}
+.gallery figcaption{padding:12px 14px;color:var(--dim);font-size:.9rem}
