@@ -1,5 +1,5 @@
-:root{--bg:#12181c;--surface:#1b2229;--surface-2:#212a32;--line:#2c363f;--text:#ece9e2;--dim:#9aa5ac;--accent:#f5c518;--on-accent:#161200;--teal:#3f8f88;color-scheme:dark light}
-@media (prefers-color-scheme:light){:root{--bg:#f4f2ec;--surface:#fff;--surface-2:#ece8dd;--line:#ddd6c4;--text:#181510;--dim:#5c554a;--accent:#b3860f;--on-accent:#fff;--teal:#2c6b64}}
+:root{--bg:#050d10;--surface:#0a171c;--surface-2:#0f2127;--line:#16343b;--text:#eaf6f7;--dim:#8fa9ae;--accent:#19e6ee;--on-accent:#031418;--teal:#2bb3bd;--glow:0 0 18px rgba(25,230,238,.45),0 0 2px rgba(25,230,238,.9);color-scheme:dark light}
+@media (prefers-color-scheme:light){:root{--bg:#f3fafa;--surface:#fff;--surface-2:#e6f3f4;--line:#c5dfe2;--text:#06161a;--dim:#4a6a70;--accent:#0a8f98;--on-accent:#fff;--teal:#0e7c86;--glow:none}}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{background:var(--bg);color:var(--text);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
@@ -67,3 +67,13 @@ footer a{text-decoration:none}footer a:hover{text-decoration:underline}
 .legal h2{font-size:1.15rem;margin:28px 0 8px}
 .legal p,.legal li{color:var(--dim)}
 .legal ul{margin:10px 0 10px 20px}
+
+body{background:radial-gradient(900px 420px at 85% -120px,rgba(25,230,238,.12),transparent 70%),radial-gradient(700px 360px at -10% 100%,rgba(14,124,134,.18),transparent 70%),var(--bg);background-attachment:fixed}
+.brand span,.glow,.amount{text-shadow:var(--glow)}
+.cta-btn,.big-cta,.lang-switch a.on{box-shadow:var(--glow)}
+.service:hover,.price-card:hover{box-shadow:0 0 24px rgba(25,230,238,.12)}
+.hero{position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-220px;top:-260px;width:620px;height:620px;border-radius:50%;border:2px solid rgba(14,124,134,.5);box-shadow:0 0 40px rgba(25,230,238,.12);pointer-events:none}
+.hero::after{content:"";position:absolute;left:-420px;bottom:-460px;width:620px;height:620px;border-radius:50%;border:2px solid rgba(14,124,134,.35);pointer-events:none}
+.hero>*{position:relative}
+footer{background:linear-gradient(180deg,transparent,rgba(14,124,134,.12))}
