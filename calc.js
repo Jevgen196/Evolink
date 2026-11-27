@@ -17,7 +17,7 @@ var UI={
 };
 var INFO={shelly:{
  h:t('Qué controlamos y con qué','What we control and with what','Что управляем и какие модули ставим'),
- how:t('Los módulos se instalan detrás del interruptor que ya tienes: sin obras ni rozas, por WiFi, compatibles con Apple Home y Google Home. El interruptor de pared sigue funcionando.','Modules fit behind your existing switch: no building work, WiFi-based, works with Apple Home and Google Home. Your wall switch keeps working.','Модули ставятся за уже существующий выключатель: без штроб и ремонта, по WiFi, работают с Apple Home и Google Home. Обычный выключатель продолжает работать.'),
+ how:t('Los módulos se instalan detrás del interruptor que ya tienes: sin obras ni rozas, por WiFi, compatibles con Apple Home y Google Home, y se controlan también desde la app propia de Shelly. El interruptor de pared sigue funcionando.','Modules fit behind your existing switch: no building work, WiFi-based, works with Apple Home and Google Home, and can also be controlled in the Shelly app. Your wall switch keeps working.','Модули ставятся за уже существующий выключатель: без штроб и ремонта, по WiFi, работают с Apple Home и Google Home, а также в собственном приложении Shelly. Обычный выключатель продолжает работать.'),
  items:[
  ['Shelly 1 / 1PM',t('Una luz o una carga (el 1PM muestra el consumo)','One light or load (1PM shows consumption)','Один свет или одна нагрузка (1PM показывает потребление)')],
  ['Shelly 2PM',t('Persianas, toldos y cortinas motorizadas','Motorised blinds, shutters and awnings','Жалюзи, рольставни, маркизы (мотор)')],
