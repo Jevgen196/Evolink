@@ -121,7 +121,6 @@ a.lang-tag{text-decoration:none;transition:border-color .15s,color .15s}a.lang-t
 .service .more{margin-top:8px}.service .more a{color:var(--accent);font-weight:600;text-decoration:none}.service .more a:hover{text-decoration:underline}
 @media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
 a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
-<<<<<<< HEAD
 .calc{margin-top:12px}
 .calc summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;list-style:none;color:var(--accent);font-weight:600;font-size:.92rem;border:1px solid var(--accent);border-radius:999px;padding:7px 16px;transition:background .15s,box-shadow .15s}
 .calc summary::-webkit-details-marker{display:none}
@@ -140,7 +139,6 @@ a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
 .calc-note{color:var(--dim);font-size:.8rem;margin:0;max-width:none}
 .calc-out .cta-btn{display:inline-block;text-align:center}
 .service.has-calc{cursor:pointer}.service.has-calc .calc-body,.service.has-calc a{cursor:auto}.service.has-calc a{cursor:pointer}
-=======
 .price-line{display:flex;align-items:baseline;flex-wrap:wrap;gap:0}
 .info-wrap{position:relative;display:inline-block;margin-left:10px;align-self:center}
 .info{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--accent);background:transparent;color:var(--accent);font:italic 700 .8rem/1 Georgia,serif;cursor:help;padding:0;display:inline-flex;align-items:center;justify-content:center;transition:background .15s,box-shadow .15s}
@@ -149,4 +147,3 @@ a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
 .tip::after{content:"";position:absolute;left:50%;top:100%;width:10px;height:10px;background:var(--surface);border-right:1px solid var(--accent);border-bottom:1px solid var(--accent);transform:translate(-50%,-50%) rotate(45deg)}
 .info-wrap:hover .tip,.info-wrap:focus-within .tip{opacity:1;visibility:visible}
 .price-main .extra{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--dim);font-size:.88rem}
->>>>>>> origin/main
