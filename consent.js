@@ -1,4 +1,4 @@
-/* Evolink: cookie consent. Google Tag Manager loads only after "Accept". */
+/* Evolink: cookie consent. GTM is in the page head (consent denied by default); cookies and ad tags are enabled only after "Accept". */
 (function () {
   var GTM_ID = 'GTM-K4KNN7X9', KEY = 'evolink_consent';
   window.dataLayer = window.dataLayer || [];
@@ -19,13 +19,7 @@
 
   function loadGtm() {
     gtag('consent', 'update', state('granted'));
-    if (loaded) return;
     loaded = true;
-    window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
-    document.head.appendChild(s);
   }
 
   function clearCookies() {
