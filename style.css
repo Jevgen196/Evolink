@@ -39,8 +39,8 @@ h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:600;margin-bottom:12px}
 .service .compat{font-size:.82rem;margin-top:6px}
 .icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:8px;background:var(--surface-2);color:var(--accent);font-size:1.1rem;margin-bottom:10px}
 .pricing,.contact{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media (max-width:640px){.price-cards{grid-template-columns:1fr}}
+.price-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:820px){.price-cards{grid-template-columns:1fr}}
 .price-card,.contact-card{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:26px}
 .label{color:var(--dim);font-size:.85rem;margin-bottom:8px}
 .amount{font-size:2rem;font-weight:700;color:var(--accent)}
@@ -138,3 +138,4 @@ a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
 .calc-total small{font-size:.8rem;font-weight:500;color:var(--dim)}
 .calc-note{color:var(--dim);font-size:.8rem;margin:0;max-width:none}
 .calc-out .cta-btn{display:inline-block;text-align:center}
+.service.has-calc{cursor:pointer}.service.has-calc .calc-body,.service.has-calc a{cursor:auto}.service.has-calc a{cursor:pointer}

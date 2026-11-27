@@ -48,6 +48,8 @@ var S=[
 var tx=function(x){return typeof x==='string'?x:x[L];};
 var fmt=function(n){return new Intl.NumberFormat(L==='es'?'es-ES':L==='ru'?'ru-RU':'en-GB').format(n);};
 var cards=document.querySelectorAll('details.calc[data-svc]');
+cards.forEach(function(d){var box=d.closest('.service');if(!box)return;box.classList.add('has-calc');
+ box.addEventListener('click',function(e){if(e.target.closest('summary,a,select,label,.calc-body'))return;d.open=!d.open;});});
 cards.forEach(function(d){
  var svc=S.filter(function(s){return s.id===d.dataset.svc;})[0]; if(!svc)return;
  d.querySelector('summary').textContent=tx(UI.summary);
