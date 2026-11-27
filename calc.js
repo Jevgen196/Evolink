@@ -23,7 +23,7 @@ var S=[
  {l:t('Apple Home / Google Home y escenas','Apple Home / Google Home and scenes','Apple Home / Google Home и сценарии'),o:[{n:t('No','No','Нет'),p:0},{n:t('Sí, configuración completa','Yes, full set-up','Да, полная настройка'),p:60}]}
  ],name:t('Domótica con Shelly','Shelly home automation','Домашняя автоматика Shelly')},
 {id:'wifi',fields:[
- {l:t('Diagnóstico de cobertura WiFi','WiFi coverage diagnosis','Диагностика покрытия WiFi'),o:[{n:t('No','No','Нет'),p:0},{n:t('Sí (1ª hora)','Yes (1st hour)','Да (1-й час)'),p:70}]},
+ {l:t('Diagnóstico de cobertura WiFi','WiFi coverage diagnosis','Диагностика покрытия WiFi'),o:[{n:t('No','No','Нет'),p:0},{n:t('Sí (1ª hora)','Yes (1st hour)','Да (1-й час)'),p:80}]},
  {l:t('Puntos de acceso (instalación y config.)','Access points (install & config)','Точки доступа (монтаж и настройка)'),o:qty(6,60)},
  {l:t('Líneas de cable de red Cat6 con tubo','Cat6 network cable runs in conduit','Кабельные линии Cat6 в трубе'),o:qty(10,90)},
  {l:t('Cámaras CCTV (instalación)','CCTV cameras (installation)','Камеры CCTV (монтаж)'),o:qty(8,70)},
@@ -38,7 +38,7 @@ var S=[
  {l:t('Puntos nuevos (enchufe, interruptor, luz)','New points (socket, switch, light)','Новые точки (розетка, выключатель, свет)'),o:qty(20,35)},
  {l:t('Cuadro eléctrico nuevo','New electrical panel','Новый электрощит'),o:[{n:t('No','No','Нет'),p:0},{n:t('Pequeño (hasta ~8 circuitos)','Small (up to ~8 circuits)','Малый (до ~8 линий)'),p:450},{n:t('Mediano (hasta ~14)','Medium (up to ~14)','Средний (до ~14)'),p:650},{n:t('Grande (más de 14)','Large (over 14)','Большой (более 14)'),p:900}]},
  {l:t('Sustitución de automáticos / diferenciales','Replacing breakers / RCDs','Замена автоматов / УЗО'),o:qty(10,60)},
- {l:t('Diagnóstico de avería','Fault diagnosis','Диагностика неисправности'),o:[{n:t('No','No','Нет'),p:0},{n:t('Sí (1ª hora)','Yes (1st hour)','Да (1-й час)'),p:70}]}
+ {l:t('Diagnóstico de avería','Fault diagnosis','Диагностика неисправности'),o:[{n:t('No','No','Нет'),p:0},{n:t('Sí (1ª hora)','Yes (1st hour)','Да (1-й час)'),p:80}]}
  ],name:t('Instalación y reparación eléctrica','Electrical installation and repair','Электромонтаж и ремонт')},
 {id:'solar',fields:[
  {l:t('Potencia fotovoltaica','PV power','Мощность солнечной станции'),req:1,o:[{n:'3 kWp',p:4500},{n:'5 kWp',p:6500},{n:'8 kWp',p:9800}]},
