@@ -15,6 +15,20 @@ var UI={
  chosen:t('Elegido en la web','Selected on the website','Выбрано на сайте'),
  approx:t('Estimación web','Web estimate','Оценка на сайте')
 };
+var INFO={shelly:{
+ h:t('Qué controlamos y con qué','What we control and with what','Что управляем и какие модули ставим'),
+ how:t('Los módulos se instalan detrás del interruptor que ya tienes: sin obras ni rozas, por WiFi, compatibles con Apple Home y Google Home. El interruptor de pared sigue funcionando.','Modules fit behind your existing switch: no building work, WiFi-based, works with Apple Home and Google Home. Your wall switch keeps working.','Модули ставятся за уже существующий выключатель: без штроб и ремонта, по WiFi, работают с Apple Home и Google Home. Обычный выключатель продолжает работать.'),
+ items:[
+ ['Shelly 1 / 1PM',t('Una luz o una carga (el 1PM muestra el consumo)','One light or load (1PM shows consumption)','Один свет или одна нагрузка (1PM показывает потребление)')],
+ ['Shelly 2PM',t('Persianas, toldos y cortinas motorizadas','Motorised blinds, shutters and awnings','Жалюзи, рольставни, маркизы (мотор)')],
+ ['Shelly Dimmer',t('Regula la intensidad de la luz','Dims the light','Диммирует свет')],
+ ['Shelly DALI Dimmer',t('Líneas de iluminación DALI','DALI lighting lines','Линии освещения DALI')],
+ ['Shelly i4 Mini',t('Convierte pulsadores en escenas y automatismos','Turns wall buttons into scenes and automations','Превращает кнопки в сценарии и автоматизации')],
+ ['Shelly Plug PM',t('Enchufe inteligente con medición de consumo','Smart plug with energy metering','Умная розетка с замером потребления')],
+ ['Shelly EM',t('Medidor de energía de toda la vivienda','Whole-home energy meter','Учёт энергии всей квартиры')],
+ ['Shelly Flood',t('Sensor de inundación','Flood sensor','Датчик протечки')],
+ [t('Sensores','Sensors','Датчики'),t('Puertas, movimiento, temperatura','Doors, motion, temperature','Двери, движение, температура')]
+ ]}};
 var S=[
 {id:'shelly',fields:[
  {l:t('Puntos de luz / interruptores','Lights / switches','Свет / выключатели'),o:qty(10,55)},
@@ -55,6 +69,11 @@ cards.forEach(function(d){
  var svc=S.filter(function(s){return s.id===d.dataset.svc;})[0]; if(!svc)return;
  d.querySelector('summary').textContent=tx(UI.summary);
  var body=d.querySelector('.calc-body'), sels=[];
+ var inf=INFO[svc.id];
+ if(inf){var ib=document.createElement('div');ib.className='calc-info';
+  var h=document.createElement('h4');h.textContent=tx(inf.h);ib.appendChild(h);
+  var ul=document.createElement('ul');inf.items.forEach(function(it){var li=document.createElement('li');var b=document.createElement('b');b.textContent=tx(it[0]);li.appendChild(b);li.appendChild(document.createTextNode(' — '+tx(it[1])));ul.appendChild(li);});ib.appendChild(ul);
+  var p=document.createElement('p');p.textContent=tx(inf.how);ib.appendChild(p);body.appendChild(ib);}
  svc.fields.forEach(function(f,i){
   var lab=document.createElement('label'); lab.className='calc-row';
   var sp=document.createElement('span'); sp.textContent=tx(f.l); lab.appendChild(sp);

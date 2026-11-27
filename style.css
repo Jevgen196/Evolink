@@ -150,3 +150,5 @@ a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
 .service{border-radius:0 12px 12px 0;transition:border-color .15s,background .15s,box-shadow .15s}
 .service:hover{border-left-width:4px;padding-left:20px;background:var(--surface-2);box-shadow:0 0 0 1px var(--accent),0 0 28px rgba(25,230,238,.28)}
 @media (prefers-color-scheme:light){.service:hover{box-shadow:0 0 0 1px var(--accent),0 6px 22px rgba(10,143,152,.22)}}
+
+.calc-info{border-bottom:1px solid var(--line);padding-bottom:14px}.calc-info h4{font-size:.95rem;margin-bottom:8px}.calc-info ul{list-style:none;display:grid;gap:6px;font-size:.88rem;color:var(--dim)}.calc-info li b{color:var(--text);font-weight:600}.calc-info p{font-size:.84rem;color:var(--dim);margin-top:10px}
