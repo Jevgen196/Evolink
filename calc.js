@@ -9,7 +9,7 @@ var UI={
  empty:t('Elige opciones para ver una estimación.','Pick options to see an estimate.','Выберите параметры, чтобы увидеть оценку.'),
  est:t('Estimación orientativa','Approximate estimate','Ориентировочная оценка'),
  vat:t('+ IVA','+ VAT','+ IVA'),
- note:t('Orientativo: el precio final lo confirmo por escrito antes de empezar. Más de 50 km: 1,50 € + IVA por cada km adicional.','Approximate: I confirm the final price in writing before starting. Over 50 km: €1.50 + VAT per additional km.','Ориентир: окончательную цену подтверждаю письменно до начала работ. Свыше 50 км: 1,50 € + IVA за каждый дополнительный км.'),
+ note:t('Orientativo: el precio final lo confirmo por escrito antes de empezar. El desplazamiento se acuerda en el presupuesto.','Approximate: I confirm the final price in writing before starting. Travel is agreed in the quote.','Ориентир: окончательную цену подтверждаю письменно до начала работ. Выезд согласуется в расчёте.'),
  wa:t('Pedir este presupuesto por WhatsApp','Request this quote on WhatsApp','Запросить расчёт в WhatsApp'),
  hello:t('Hola, quiero presupuesto de','Hello, I would like a quote for','Здравствуйте, хочу расчёт:'),
  chosen:t('Elegido en la web','Selected on the website','Выбрано на сайте'),
