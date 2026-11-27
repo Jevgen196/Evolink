@@ -120,3 +120,4 @@ a.lang-tag{text-decoration:none;transition:border-color .15s,color .15s}a.lang-t
 .faq details p{color:var(--dim);margin-top:10px;max-width:70ch}
 .service .more{margin-top:8px}.service .more a{color:var(--accent);font-weight:600;text-decoration:none}.service .more a:hover{text-decoration:underline}
 @media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
+a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
