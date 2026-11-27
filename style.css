@@ -101,3 +101,22 @@ footer{background:linear-gradient(180deg,transparent,rgba(14,124,134,.12))}
 
 .contact .section-lead{max-width:none;text-wrap:balance}
 .lang-tag svg{border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.15)}
+a.lang-tag{text-decoration:none;transition:border-color .15s,color .15s}a.lang-tag:hover{border-color:var(--accent);color:var(--accent)}
+.svc-hero{padding-bottom:40px}
+.svc-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.checks{list-style:none;display:grid;gap:12px}
+.checks li{position:relative;padding:14px 16px 14px 48px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;color:var(--text);font-size:.95rem}
+.checks li::before{content:"";position:absolute;left:16px;top:16px;width:20px;height:20px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23031418' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat;box-shadow:var(--glow)}
+.svc-photo{margin:0;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.svc-photo img{display:block;width:100%;height:auto}
+.svc-photo figcaption{padding:12px 14px;color:var(--dim);font-size:.9rem}
+.callout{border:1px solid var(--accent);border-radius:14px;padding:24px 26px;background:var(--surface-2);box-shadow:0 0 24px rgba(25,230,238,.12)}
+.callout h2{margin-bottom:10px}.callout p{color:var(--dim);max-width:70ch}
+.faq details{border-bottom:1px solid var(--line);padding:16px 0}
+.faq summary{cursor:pointer;font-weight:600;list-style:none;padding-right:28px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:-2px;color:var(--accent);font-size:1.4rem;font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--dim);margin-top:10px;max-width:70ch}
+.service .more{margin-top:8px}.service .more a{color:var(--accent);font-weight:600;text-decoration:none}.service .more a:hover{text-decoration:underline}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
