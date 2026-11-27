@@ -147,3 +147,6 @@ a.lang-tag.on{border-color:var(--accent);color:var(--text);cursor:default}
 .tip::after{content:"";position:absolute;left:50%;top:100%;width:10px;height:10px;background:var(--surface);border-right:1px solid var(--accent);border-bottom:1px solid var(--accent);transform:translate(-50%,-50%) rotate(45deg)}
 .info-wrap:hover .tip,.info-wrap:focus-within .tip{opacity:1;visibility:visible}
 .price-main .extra{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--dim);font-size:.88rem}
+.service{border-radius:0 12px 12px 0;transition:border-color .15s,background .15s,box-shadow .15s}
+.service:hover{border-left-width:4px;padding-left:20px;background:var(--surface-2);box-shadow:0 0 0 1px var(--accent),0 0 28px rgba(25,230,238,.28)}
+@media (prefers-color-scheme:light){.service:hover{box-shadow:0 0 0 1px var(--accent),0 6px 22px rgba(10,143,152,.22)}}
