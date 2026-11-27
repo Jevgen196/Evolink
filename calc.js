@@ -32,8 +32,9 @@ var S=[
 {id:'ev',fields:[
  {l:t('Distancia del cuadro al cargador','Distance from panel to charger','Расстояние от щита до зарядки'),req:1,o:[{n:t('Hasta 10 m','Up to 10 m','До 10 м'),p:520},{n:t('10–20 m','10–20 m','10–20 м'),p:680},{n:t('20–30 m','20–30 m','20–30 м'),p:850},{n:t('Más de 30 m (desde)','Over 30 m (from)','Более 30 м (от)'),p:1050}]},
  {l:t('Alimentación','Supply','Питание'),o:[{n:t('Monofásica 7,4 kW','Single-phase 7.4 kW','Однофазная 7,4 кВт'),p:0},{n:t('Trifásica 11 kW o más','Three-phase 11 kW or more','Трёхфазная 11 кВт и более'),p:120}]},
+ {l:t('Cargador (precio del equipo + IVA)','Charger (equipment price + VAT)','Зарядка (цена оборудования + IVA)'),dep:{on:1,map:[[{n:t("Ya tengo cargador / lo suministra el cliente","I already have a charger / customer supplies it","Зарядка уже есть / привозит клиент"),p:0},{n:"Scame 7 kW Tipo 2 — 480 €",p:480},{n:"Proxe 7 kW Tipo 2 — 510 €",p:510},{n:"Huawei 7,4 kW WiFi — 415 €",p:415},{n:"Schneider EVlink Home 7,4 kW — 415 €",p:415},{n:"Schneider Charge 7,4 kW — 615 €",p:615},{n:"Simon 7,4 kW — 810 €",p:810}],[{n:t("Ya tengo cargador / lo suministra el cliente","I already have a charger / customer supplies it","Зарядка уже есть / привозит клиент"),p:0},{n:"Huawei 22 kW WiFi — 415 €",p:415},{n:"Policharger ON-T23 22 kW — 640 €",p:640}]]},o:[]},
  {l:t('Ubicación','Location','Место'),o:[{n:t('Vivienda o garaje propio','Home or private garage','Дом или свой гараж'),p:0},{n:t('Garaje comunitario','Community garage','Общий гараж'),p:120}]}
- ],extra:t('Incluye línea dedicada, magnetotérmico y diferencial tipo A/HI. El cargador no está incluido.','Includes dedicated line, breaker and type A/HI RCD. Charger not included.','Включает отдельную линию, автомат и УЗО типа A/HI. Сама зарядка не входит.'),name:t('Cargador para coche eléctrico','EV charger','Зарядка для электромобиля')},
+ ],extra:t('Incluye línea dedicada, magnetotérmico y diferencial tipo A/HI. El cargador solo se suma si lo eliges en la lista.','Includes dedicated line, breaker and type A/HI RCD. A charger is added only if you pick one from the list.','Включает отдельную линию, автомат и УЗО типа A/HI. Зарядка добавляется, только если выбрать её в списке.'),name:t('Cargador para coche eléctrico','EV charger','Зарядка для электромобиля')},
 {id:'electric',fields:[
  {l:t('Puntos nuevos (enchufe, interruptor, luz)','New points (socket, switch, light)','Новые точки (розетка, выключатель, свет)'),o:qty(20,35)},
  {l:t('Cuadro eléctrico nuevo','New electrical panel','Новый электрощит'),o:[{n:t('No','No','Нет'),p:0},{n:t('Pequeño (hasta ~8 circuitos)','Small (up to ~8 circuits)','Малый (до ~8 линий)'),p:450},{n:t('Mediano (hasta ~14)','Medium (up to ~14)','Средний (до ~14)'),p:650},{n:t('Grande (más de 14)','Large (over 14)','Большой (более 14)'),p:900}]},
@@ -58,9 +59,11 @@ cards.forEach(function(d){
   var lab=document.createElement('label'); lab.className='calc-row';
   var sp=document.createElement('span'); sp.textContent=tx(f.l); lab.appendChild(sp);
   var sel=document.createElement('select');
-  if(f.req){var ph=document.createElement('option');ph.value='';ph.textContent=tx(UI.choose);sel.appendChild(ph);}
-  f.o.forEach(function(o,j){var op=document.createElement('option');op.value=String(j);op.textContent=tx(o.n);sel.appendChild(op);});
+  var fill=function(){sel.innerHTML='';if(f.req){var ph=document.createElement('option');ph.value='';ph.textContent=tx(UI.choose);sel.appendChild(ph);}
+   f.o.forEach(function(o,j){var op=document.createElement('option');op.value=String(j);op.textContent=tx(o.n);sel.appendChild(op);});};
   lab.appendChild(sel); body.appendChild(lab); sels.push(sel); sel.addEventListener('change',upd);
+  if(f.dep){var setList=function(){f.o=f.dep.map[+sels[f.dep.on].value];fill();};setList();sels[f.dep.on].addEventListener('change',function(){setList();upd();});}
+  else fill();
  });
  var out=document.createElement('div'); out.className='calc-out'; body.appendChild(out);
  var note=document.createElement('p'); note.className='calc-note'; note.textContent=(svc.extra?tx(svc.extra)+' ':'')+tx(UI.note); body.appendChild(note);
