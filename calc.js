@@ -1,5 +1,6 @@
 /* Evolink price calculator. PRICES: edit numbers only. All prices are client prices, EUR, excl. IVA. */
 (function(){
+var BASE=(document.currentScript&&document.currentScript.src||'').replace(/calc\.js.*$/,'');
 var L=(document.documentElement.lang||'es').slice(0,2); if(!{es:1,en:1,ru:1}[L])L='es';
 var t=function(es,en,ru){return {es:es,en:en,ru:ru};};
 var qty=function(max,unit){var o=[];for(var i=0;i<=max;i++)o.push({n:String(i),p:i*unit});return o;};
@@ -16,7 +17,16 @@ var UI={
  chosen:t('Elegido en la web','Selected on the website','Выбрано на сайте'),
  approx:t('Estimación web','Web estimate','Оценка на сайте')
 };
-var INFO={shelly:{
+var INFO={wifi:{
+ h:t('Qué instalamos','What we install','Что устанавливаем'),
+ how:t('Antes de instalar revisamos la cobertura y proponemos dónde colocar cada equipo. La velocidad real depende de tu conexión a internet y de la vivienda.','Before installing we check coverage and suggest where each unit should go. Real speed depends on your internet connection and your property.','Перед установкой проверяем покрытие и предлагаем, где разместить каждое устройство. Реальная скорость зависит от вашего интернета и дома.'),
+ items:[
+ [t('WiFi Mesh y WiFi 7','Mesh WiFi & WiFi 7','Mesh WiFi и WiFi 7'),t('WiFi 7 es el estándar más reciente: más rápido y estable con dispositivos compatibles. Mesh une varios puntos en una sola red: pasas de una habitación a otra sin perder la conexión. También pueden crear una red aparte para dispositivos IoT y una red de invitados.','WiFi 7 is the latest standard: faster and more stable on compatible devices. Mesh links several units into one network, so you move between rooms without dropping the connection. They can also provide a separate IoT network and a guest network.','WiFi 7 — новейший стандарт: выше скорость и стабильнее связь на совместимых устройствах. Mesh объединяет несколько точек в одну сеть: вы переходите из комнаты в комнату практически без обрывов. Также могут создавать отдельную сеть для IoT-устройств и гостевую сеть.'),['img/wifi-mesh7.jpg','img/wifi-deco.jpg']],
+ ['Starlink',t('Internet donde no llega la fibra; acceso autónomo a internet incluso en los lugares más remotos','Internet where there is no fibre; independent internet access even in the most remote places','Интернет там, где нет оптики; автономный доступ к интернету даже в самых удалённых местах'),'img/wifi-starlink.jpg'],
+ [t('Cámaras de videovigilancia','CCTV cameras','Камеры видеонаблюдения'),t('Cámaras IP con grabación de vídeo de alta calidad y acceso desde el móvil; archivo en tu propio servidor o en la nube','IP cameras with high-quality video recording and phone access; archive stored on your own server or in the cloud','IP-камеры с записью видео высокого качества и доступом с телефона, хранение архива на вашем сервере или в облаке'),'img/wifi-cctv.jpg'],
+ [t('Cableado y armario de red','Network cabling and cabinet','Кабельная сеть и сетевой шкаф'),t('Cableado de red, panel de conexiones y switch PoE: todo para una internet rápida en casa y para configurar y hacer funcionar las cámaras de videovigilancia','Network cabling, patch panel and PoE switch: everything for fast home internet and for setting up and running CCTV cameras','Прокладка сети, патч-панель, PoE-коммутатор — всё для высокой скорости интернета в доме, настройки и работы камер видеонаблюдения'),'img/wifi-rack.jpg']
+ ]},
+shelly:{
  h:t('Qué controlamos y con qué','What we control and with what','Что управляем и какие модули ставим'),
  how:t('Los módulos se instalan detrás del interruptor que ya tienes: sin obras ni rozas, por WiFi, compatibles con Apple Home y Google Home, y se controlan también desde la app propia de Shelly. El interruptor de pared sigue funcionando.','Modules fit behind your existing switch: no building work, WiFi-based, works with Apple Home and Google Home, and can also be controlled in the Shelly app. Your wall switch keeps working.','Модули ставятся за уже существующий выключатель: без штроб и ремонта, по WiFi, работают с Apple Home и Google Home, а также в собственном приложении Shelly. Обычный выключатель продолжает работать.'),
  items:[
@@ -74,7 +84,10 @@ cards.forEach(function(d){
  var inf=INFO[svc.id];
  if(inf){var ib=document.createElement('div');ib.className='calc-info';
   var h=document.createElement('h4');h.textContent=tx(inf.h);ib.appendChild(h);
-  var ul=document.createElement('ul');inf.items.forEach(function(it){var li=document.createElement('li');var b=document.createElement('b');b.textContent=tx(it[0]);li.appendChild(b);li.appendChild(document.createTextNode(' — '+tx(it[1])));ul.appendChild(li);});ib.appendChild(ul);
+  var ul=document.createElement('ul');inf.items.forEach(function(it){var li=document.createElement('li');var b=document.createElement('b');b.textContent=tx(it[0]);
+   if(it[2]){li.className='has-img'+(Array.isArray(it[2])?' multi':'');var th=document.createElement('div');th.className='thumbs';[].concat(it[2]).forEach(function(src){var im=document.createElement('img');im.src=BASE+src;im.alt='';im.width=88;im.height=88;im.loading='lazy';th.appendChild(im);});li.appendChild(th);var dv=document.createElement('div');dv.appendChild(b);var sp=document.createElement('span');sp.textContent=tx(it[1]);dv.appendChild(sp);li.appendChild(dv);}
+   else{li.appendChild(b);li.appendChild(document.createTextNode(' — '+tx(it[1])));}
+   ul.appendChild(li);});ib.appendChild(ul);
   var p=document.createElement('p');p.textContent=tx(inf.how);ib.appendChild(p);body.appendChild(ib);}
  (INFO_ONLY?[]:svc.fields).forEach(function(f,i){
   var lab=document.createElement('label'); lab.className='calc-row';
