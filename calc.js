@@ -1,5 +1,6 @@
 /* Evolink price calculator. PRICES: edit numbers only. All prices are client prices, EUR, excl. IVA. */
 (function(){
+var BASE=(document.currentScript&&document.currentScript.src||'').replace(/calc\.js.*$/,'');
 var L=(document.documentElement.lang||'es').slice(0,2); if(!{es:1,en:1,ru:1}[L])L='es';
 var t=function(es,en,ru){return {es:es,en:en,ru:ru};};
 var qty=function(max,unit){var o=[];for(var i=0;i<=max;i++)o.push({n:String(i),p:i*unit});return o;};
@@ -16,7 +17,17 @@ var UI={
  chosen:t('Elegido en la web','Selected on the website','Выбрано на сайте'),
  approx:t('Estimación web','Web estimate','Оценка на сайте')
 };
-var INFO={shelly:{
+var INFO={wifi:{
+ h:t('Qué instalamos','What we install','Что устанавливаем'),
+ how:t('Antes de instalar revisamos la cobertura y proponemos dónde colocar cada equipo. La velocidad real depende de tu conexión a internet y de la vivienda.','Before installing we check coverage and suggest where each unit should go. Real speed depends on your internet connection and your property.','Перед установкой проверяем покрытие и предлагаем, где разместить каждое устройство. Реальная скорость зависит от вашего интернета и дома.'),
+ items:[
+ [t('WiFi Mesh y WiFi 7','Mesh WiFi & WiFi 7','Mesh WiFi и WiFi 7'),t('Cobertura en toda la casa: varios puntos que funcionan como una sola red','Whole-home coverage: several units working as one network','Покрытие по всему дому: несколько точек работают как одна сеть'),'img/wifi-mesh7.jpg'],
+ [t('Puntos de acceso','Access points','Точки доступа'),t('Para zonas con poca señal: terraza, planta superior, anexos','For weak-signal areas: terrace, upper floor, outbuildings','Для зон со слабым сигналом: терраса, второй этаж, пристройки'),'img/wifi-deco.jpg'],
+ ['Starlink',t('Internet por satélite donde no llega la fibra: antena, soporte, cable y puesta en marcha','Satellite internet where fibre does not reach: dish, mount, cable and setup','Спутниковый интернет там, где нет оптики: антенна, крепление, кабель и запуск'),'img/wifi-starlink.jpg'],
+ [t('Cámaras de videovigilancia','CCTV cameras','Камеры видеонаблюдения'),t('Cámaras IP con grabación y acceso desde el móvil','IP cameras with recording and phone access','IP-камеры с записью и доступом с телефона'),'img/wifi-cctv.jpg'],
+ [t('Cableado y armario de red','Network cabling and cabinet','Кабельная сеть и сетевой шкаф'),t('Cableado de red, panel de conexiones, switch PoE y armario ordenado','Network cabling, patch panel, PoE switch and a tidy cabinet','Прокладка сети, патч-панель, PoE-коммутатор и аккуратный шкаф'),'img/wifi-rack.jpg']
+ ]},
+shelly:{
  h:t('Qué controlamos y con qué','What we control and with what','Что управляем и какие модули ставим'),
  how:t('Los módulos se instalan detrás del interruptor que ya tienes: sin obras ni rozas, por WiFi, compatibles con Apple Home y Google Home, y se controlan también desde la app propia de Shelly. El interruptor de pared sigue funcionando.','Modules fit behind your existing switch: no building work, WiFi-based, works with Apple Home and Google Home, and can also be controlled in the Shelly app. Your wall switch keeps working.','Модули ставятся за уже существующий выключатель: без штроб и ремонта, по WiFi, работают с Apple Home и Google Home, а также в собственном приложении Shelly. Обычный выключатель продолжает работать.'),
  items:[
@@ -74,7 +85,10 @@ cards.forEach(function(d){
  var inf=INFO[svc.id];
  if(inf){var ib=document.createElement('div');ib.className='calc-info';
   var h=document.createElement('h4');h.textContent=tx(inf.h);ib.appendChild(h);
-  var ul=document.createElement('ul');inf.items.forEach(function(it){var li=document.createElement('li');var b=document.createElement('b');b.textContent=tx(it[0]);li.appendChild(b);li.appendChild(document.createTextNode(' — '+tx(it[1])));ul.appendChild(li);});ib.appendChild(ul);
+  var ul=document.createElement('ul');inf.items.forEach(function(it){var li=document.createElement('li');var b=document.createElement('b');b.textContent=tx(it[0]);
+   if(it[2]){li.className='has-img';var im=document.createElement('img');im.src=BASE+it[2];im.alt='';im.width=88;im.height=88;im.loading='lazy';li.appendChild(im);var dv=document.createElement('div');dv.appendChild(b);var sp=document.createElement('span');sp.textContent=tx(it[1]);dv.appendChild(sp);li.appendChild(dv);}
+   else{li.appendChild(b);li.appendChild(document.createTextNode(' — '+tx(it[1])));}
+   ul.appendChild(li);});ib.appendChild(ul);
   var p=document.createElement('p');p.textContent=tx(inf.how);ib.appendChild(p);body.appendChild(ib);}
  (INFO_ONLY?[]:svc.fields).forEach(function(f,i){
   var lab=document.createElement('label'); lab.className='calc-row';
